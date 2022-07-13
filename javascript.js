@@ -74,3 +74,42 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+function game () {
+    //assign playerScore var; increment in playRound()
+    playerScore = 0;
+    //assign computerScore var; increment in playRound()
+    computerScore = 0;
+
+    //loop 5 times for 5 round game
+    for (let i = 0; i < 5; x++) {
+        //assign playerSelection using prompt()
+        playerSelection = prompt("Please enter Rock, Paper, or Scissors:", "");
+
+        //assign computerSelection by calling computerPlay()
+        computerSelection = computerPlay();
+
+        //call playRound()
+        console.log(playRound(playerSelection, computerSelection));
+    }
+    //end loop
+
+    console.log(`Your Score: ${playerScore}`);
+    console.log(`Computer's Score: ${computerScore}`);
+
+    //compare playerScore and computerScore; output winner and score
+    if (playerScore > computerScore) {
+        console.log("You Win!");
+    }
+    else if (computerScore < playerScore) {
+        console.log("You Lose");
+    }
+    else {
+        console.log("You Tied");
+    }
+    
+}
+
+let playerScore;
+let computerScore;
+let playerSelection;
+let computerSelection;
