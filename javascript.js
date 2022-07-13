@@ -9,7 +9,7 @@ function computerPlay() {
 
 //function takes player and computer input and displays winner
 function playRound(playerSelection, computerSelection) {
-    playerSelection.toLowerCase();
+    playerSelection = playerSelection.toLowerCase();
 
     //if playerSelection is equal to paper
     if (playerSelection == "paper") {
@@ -81,12 +81,16 @@ function game () {
     computerScore = 0;
 
     //loop 5 times for 5 round game
-    for (let i = 0; i < 5; x++) {
+    for (let i = 0; i < 5; i++) {
         //assign playerSelection using prompt()
         playerSelection = prompt("Please enter Rock, Paper, or Scissors:", "");
 
         //assign computerSelection by calling computerPlay()
         computerSelection = computerPlay();
+
+        //output selection
+        console.log(`You chose: ${playerSelection}`);
+        console.log(`The computer chose: ${computerSelection}`);
 
         //call playRound()
         console.log(playRound(playerSelection, computerSelection));
@@ -100,11 +104,11 @@ function game () {
     if (playerScore > computerScore) {
         console.log("You Win!");
     }
-    else if (computerScore < playerScore) {
-        console.log("You Lose");
+    else if (computerScore > playerScore) {
+        console.log("You Lose!");
     }
     else {
-        console.log("You Tied");
+        console.log("Its a Tie!");
     }
     
 }
@@ -113,3 +117,5 @@ let playerScore;
 let computerScore;
 let playerSelection;
 let computerSelection;
+
+console.log(game());
