@@ -9,7 +9,6 @@ function computerPlay() {
 
 //function takes player and computer input and displays winner
 function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
 
     //if playerSelection is equal to paper
     if (playerSelection == "paper") {
