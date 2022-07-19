@@ -10,21 +10,24 @@ function computerPlay() {
 //function takes player and computer input and displays winner
 function playRound(playerSelection, computerSelection) {
 
+    const results = document.querySelector('.results');
+    results.textContent = "Results:"
+
     //if playerSelection is equal to paper
     if (playerSelection == "paper") {
         //and computerSelection is equal to rock -- win
         if (computerSelection == "rock") {
-            console.log("You Win! Paper beats Rock");
+            results.textContent = "You Win! Paper beats Rock";
             playerScore++;
         }
         //and computerSelection is equal to scissors -- lose
         else if (computerSelection == "scissors") {
-            console.log("You Lose! Scissors beats Paper");
+            results.textContent = "You Lose! Scissors beats Paper";
             computerScore++;
         }
         //and computerSelection is equal to paper -- tie
         else {
-            console.log("It's a tie! Paper is equal to Paper");
+            results.textContent = "It's a tie! Paper is equal to Paper";
             computerScore++;
             playerScore++;
         }
@@ -33,18 +36,18 @@ function playRound(playerSelection, computerSelection) {
     else if (playerSelection == "rock") {
         //and computerSelection is equal to rock -- tie
         if (computerSelection == "rock") {
-            console.log("It's a tie! Rock is equal to Rock");
+            results.textContent = "It's a tie! Rock is equal to Rock";
             computerScore++;
             playerScore++;
         }
         //and computerSelection is equal to scissors -- win
         else if (computerSelection == "scissors") {
-            console.log("You Win! Rock beats Scissors");
+            results.textContent = "You Win! Rock beats Scissors";
             playerScore++;
         }
         //and computerSelection is equal to paper -- lose
         else {
-            console.log("You Lose! Paper beats Rock");
+            results.textContent = "You Lose! Paper beats Rock";
             computerScore++;
         }
     } 
@@ -52,24 +55,24 @@ function playRound(playerSelection, computerSelection) {
     else if (playerSelection == "scissors") { 
         //and computerSelection is equal to rock -- lose
         if (computerSelection == "rock") {
-            console.log("You Lose! Rock beats Scissors");
+            results.textContent = "You Lose! Rock beats Scissors";
             computerScore++;
         }
         //and computerSelection is equal to scissors -- tie
         else if (computerSelection == "scissors") {
-            console.log("Its a tie! Scissors is equal to Scissors");
+            results.textContent = "Its a tie! Scissors is equal to Scissors";
             computerScore++;
             playerScore++;
         }
         //and computerSelection is equal to paper -- win
         else {
-            console.log("You Win! Scissors beats Paper");
+            results.textContent = "You Win! Scissors beats Paper";
             playerScore++;
         }
     } 
     //else: player has entered invalid value
     else {
-        console.log("You have entered an invalid value!")
+        results.textContent = "You have entered an invalid value!"
     }
 }
 
@@ -77,7 +80,7 @@ function playRound(playerSelection, computerSelection) {
 function runRound(e) {
     playerSelection = e.composedPath()[0].id; //location of id name
     computerSelection = computerPlay();
-    console.log(playRound(playerSelection, computerSelection));
+    playRound(playerSelection, computerSelection);
 }
 
 function game () {
@@ -85,6 +88,9 @@ function game () {
     playerScore = 0;
     //assign computerScore var; increment in playRound()
     computerScore = 0;
+
+    const results = document.querySelector('.results');
+    results.textContent = "Results:"
 
     //options section
     const options = document.querySelector('.options');
@@ -108,18 +114,18 @@ function game () {
     buttons.forEach(node => addEventListener('click', runRound));
 
 
-    console.log(`Your Score: ${playerScore}`);
-    console.log(`Computer's Score: ${computerScore}`);
+    results.textContent = `Your Score: ${playerScore}`;
+    results.textContent = `Computer's Score: ${computerScore}`;
 
     //compare playerScore and computerScore; output winner and score
     if (playerScore >= 5) {
-        console.log("You Win!");
+        results.textContent = "You Win!";
     }
     else if (computerScore >= 5) {
-        console.log("You Lose!");
+        results.textContent = "You Lose!";
     }
     else {
-        console.log("Its a Tie!");
+        results.textContent = "Its a Tie!";
     }
     
 }
