@@ -73,37 +73,49 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+//gets user selections and plays Round
+function runRound(e) {
+    playerSelection = e.composedPath()[0].id; //location of id name
+    computerSelection = computerPlay();
+    console.log(playRound(playerSelection, computerSelection));
+}
+
 function game () {
     //assign playerScore var; increment in playRound()
     playerScore = 0;
     //assign computerScore var; increment in playRound()
     computerScore = 0;
 
-    //loop 5 times for 5 round game
-    for (let i = 0; i < 5; i++) {
-        //assign playerSelection using prompt()
-        playerSelection = prompt("Please enter Rock, Paper, or Scissors:", "");
+    //options section
+    const options = document.querySelector('.options');
 
-        //assign computerSelection by calling computerPlay()
-        computerSelection = computerPlay();
+    const rock = document.createElement('button');
+    rock.setAttribute('id','rock');
+    rock.textContent = "Rock";
+    options.appendChild(rock);
 
-        //output selection
-        console.log(`You chose: ${playerSelection}`);
-        console.log(`The computer chose: ${computerSelection}`);
+    const paper = document.createElement('button');
+    paper.setAttribute('id','paper');
+    paper.textContent = "Paper";
+    options.appendChild(paper);
 
-        //call playRound()
-        console.log(playRound(playerSelection, computerSelection));
-    }
-    //end loop
+    const scissors = document.createElement('button');
+    scissors.setAttribute('id','scissors');
+    scissors.textContent = "Scissors";
+    options.appendChild(scissors);
+
+    const buttons = options.querySelectorAll('button');
+    buttons.forEach(node => addEventListener('click', runRound));
+
 
     console.log(`Your Score: ${playerScore}`);
     console.log(`Computer's Score: ${computerScore}`);
 
     //compare playerScore and computerScore; output winner and score
-    if (playerScore > computerScore) {
+    if (playerScore >= 5) {
         console.log("You Win!");
     }
-    else if (computerScore > playerScore) {
+    else if (computerScore >= 5) {
         console.log("You Lose!");
     }
     else {
@@ -117,4 +129,4 @@ let computerScore;
 let playerSelection;
 let computerSelection;
 
-console.log(game());
+window.addEventListener('click', game());
