@@ -1,0 +1,30 @@
+body {
+    background-color: lightblue;
+}
+
+.options {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+}
+.options button {
+    padding: 16px;
+    color: white;
+    background-color: rgb(9, 108, 255);
+    border-color: rgb(9, 108, 255);
+    border-width: 3px;
+    border-radius: 5px;
+}
+
+.options button:hover {
+    border-width: 3px;
+    border-radius: 5px;
+    border-color: rgb(248, 205, 11);
+}
+
+.results1, .results2, .results3 {
+    margin-top: 24px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24pt;
+}
