@@ -10,6 +10,9 @@ Date Started: July 12, 2022
 Last Update: July 21, 2022
 ------------------------------------------------------
 
+A brief synopsis on The Odin Project: For this project, The Odin Project gives basic instructions on what needs to be implemented but does not explain how. There is also a lot of area for flexibility in terms of style and specifics on how the program runs. The instructions to this project can be found at this link. https://www.theodinproject.com/lessons/foundations-rock-paper-scissors.
+I have attached a .txt file with my research and planning for the project.  
+
 Basic Rock Paper Scissors game using Javascript, HTML, and CSS. 
 First basic JS project. Meant to (at first) simply run the game completely on the console. Project updated with interactive buttons added through CSS and HTML.
 
